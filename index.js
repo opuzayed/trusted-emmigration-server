@@ -70,7 +70,7 @@ async function run() {
             res.send(result);
         });
 
-        app.patch('/addservice/:id', verifyJWT, async (req, res) => {
+        app.patch('/addservice/:id', async (req, res) => {
             const id = req.params.id;
             const status = req.body.status
             const query = { _id: ObjectId(id) }
@@ -83,7 +83,7 @@ async function run() {
             res.send(result);
         })
 
-        app.delete('/addservice/:id', verifyJWT, async (req, res) => {
+        app.delete('/addservice/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
             const result = await orderCollection.deleteOne(query);
@@ -101,6 +101,4 @@ app.get('/', (req, res) => {
     res.send('Emmigration server is running')
 });
 
-app.listen(port, () => {
-    console.log(`Emmigration  server is running on ${port}`);
-});
+
