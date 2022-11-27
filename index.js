@@ -101,4 +101,6 @@ app.get('/', (req, res) => {
     res.send('Emmigration server is running')
 });
 
-
+app.listen(port, () => {
+    console.log(`Immigration  server is running on ${port}`);
+});
